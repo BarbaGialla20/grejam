@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: italian-grandma-coach
+    env: python
+    plan: free
+    buildCommand: |
+      echo "python-3.9.18" > runtime.txt
+      pip install -r requirements.txt
+    startCommand: uvicorn main:app --host=0.0.0.0 --port=10000
+    envVars:
+      - key: PORT
+        value: 10000
